@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    
+}
+ /* Contenedro general*/
+.contenedor{
+    display: grid; /* se pone en en que contiene todoas las cajas*/
+    grid-template-areas: 'header header'
+                         'texto imagen'
+                         'botones btnSecundario';
+    grid-template-columns: 50% auto;
+    grid-template-rows: 15% auto 15%;
+    width: 90%;
+    margin:  auto;
+    
+    
+}
+/* contenedorheader */
+.header{
+    grid-area: header;
+    margin: 20px;
+    
+}
+/* contenedor input texto*/
+
+.texto{
+    grid-area: texto;
+    text-align: center;
+    line-height: 250px;
+}
+#texto{
+    width: 60%;
+    height: 7%;
+    padding-left: 10px;
+    border-radius: 20px;
+    font-size: 1.2em;
+    color: #5a7af1ff;
+}
+/* contenedor imagen*/
+.imagen{
+    grid-area: imagen;
+    text-align: center;
+}
+#imagenDuda{
+    width: 40%;
+}
+#textoFinal, #copiar{
+    visibility: hidden;
+}
+/* contenedor botones principales*/
+.botones{
+    grid-area: botones;
+    text-align: center;
+}
+/* contenedor botones secundario*/
+.btnSecundario{
+    grid-area: btnSecundario;
+    text-align: center;
+}
+.btn{
+    width: 23%;
+    height: 2.2srem;
+    border-radius: 20px;
+    margin: 10px;
+    font-size: 1.2rem;
+    padding: 5px ;
+}
+#encriptar{
+    background-color: #5a7af1ff;
+    color: #fff;
+}
+#textoFinal{
+    border-radius: 5%;
+    resize: none;
+    width: 50%;
+    color: #5a7af1ff;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Encriptador Alura ONE</title>
+</head>
+<body>
+  <div class="contenedor">
+    <div class="header">
+      <img src="img/Vector.png" alt="">
+    </div>
+    <div class="texto">
+      <input type="text" name="" id="texto" autocomplete="off">
+      <button class="btn" id="limpiar" onclick="limpiar()">Limpiar</button>
+    </div>
+    <div class="imagen">
+      <img src="img/logo.png" alt="" id="imagenDuda">
+      <h2 id="sinTexto">No hay ningun mensaje</h2>
+      <textarea name="" id="textoFinal" cols="30" rows="10"></textarea>
+    </div>
+    <div class="botones">
+      <p class="textoDetalle"><span class="imagenDetalle"><img src="img/signo.png" alt="" id="imagen""></span>Solo letras minusculas y sin acento</p>
+      <button class="btn" id ="encriptar" type="submit" value="Encriptar" onclick="encriptar()">Encriptar</button>
+      <button class="btn" id="desencriptar" type="submit" value="Desencriptar" onclick="desencriptar()">Desencriptar</button>
+    </div>
+    <div class="btnSecundario">
+      <button class="btn" id="copiar" type="submit" onclick="copiarTexto()">Copiar Texto</button>
+    </div>
+  </div>
+  <div>
+    Creado por Lucas Amarillo - Argentina
+  </div>
+  <script>
+    /* Funcion Encriptar */
+    function encriptar(){
+      var textoVariable = document.getElementById('texto').value;
+      var textoCifrado = textoVariable.replace(/e/gi, "enter").replace(/i/gi, "imes").replace(/a/gi, "ai").replace(/o/gi, "ober").replace(/u/gi, "ufat");
+      document.getElementById('textoFinal').innerHTML = textoCifrado.toLowerCase();
+      ocultarImgTxt();
+    }
+    document.getElementById('texto').addEventListener('keyup', ocultarImgTxt)
+
+    /* Funcion Desencripatar*/
+    function desencriptar(){
+      var textoVariable = document.getElementById('texto').value;
+      var textoCifrado = textoVariable.replace(/ai/gi, "a").replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+      document.getElementById('textoFinal').innerHTML = textoCifrado.toLowerCase();
+      ocultarImgTxt();
+    }
+    /* funciones auxiliares*/
+    function ocultarImgTxt(){
+      document.getElementById('sinTexto').style.visibility = "hidden";
+      document.getElementById('imagenDuda').style.visibility = "hidden";
+      document.getElementById('textoFinal').style.visibility = "visible";
+      document.getElementById('copiar').style.visibility = "visible";
+    }
+    function mostrarImgTxt(){
+      document.getElementById('sinTexto').style.visibility = "visible";
+      document.getElementById('imagenDuda').style.visibility = "visible";
+      document.getElementById('textoFinal').style.visibility = "hidden";
+      document.getElementById('copiar').style.visibility = "hidden";
+    }
+    function limpiar(){
+      if (document.getElementById('texto')!='') {
+        document.getElementById('texto').value = '';
+        mostrarImgTxt();
+        document.getElementById('texto').focus() = 'true';
+      }
+    }
+    function copiarTexto(){
+     textoCopiado = document.getElementById('textoFinal').select();
+     document.execCommand('copy');
+     alert("El texto ha sido copiado");
+    }
+  </script>
+</body>
+</html>
